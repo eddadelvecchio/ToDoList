@@ -4,14 +4,16 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include "Date.h"
 
 using namespace std;
 
 class Element {
+
 public:
     Element() = default;
 
-    explicit Element(const string &name);
+    explicit Element(const string &name, Date date = Date());
 
     const string &getName() const;
 
@@ -27,6 +29,10 @@ public:
 
     void setDateTime(const string &dateTime);
 
+    const Date getReminderDate() const;
+
+    void setReminderDate(const Date &reminderDate);
+
     const string toString() const;
 
     bool operator==(const Element &rhs) const;
@@ -35,6 +41,7 @@ public:
 
 private:
     string name;
+    Date reminderDate; //Date e ora di quando è stato programmato l'elemento
     bool checked;
     string dateTime; //Data e ora di quando è stato completato l'elemento
 };

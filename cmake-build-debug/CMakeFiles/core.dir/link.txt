@@ -1,2 +1,2 @@
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe qc libcore.a CMakeFiles/core.dir/Element.cpp.obj CMakeFiles/core.dir/ListElement.cpp.obj
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe qc libcore.a CMakeFiles/core.dir/Element.cpp.obj CMakeFiles/core.dir/ListElement.cpp.obj CMakeFiles/core.dir/Date.cpp.obj
 C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ranlib.exe libcore.a

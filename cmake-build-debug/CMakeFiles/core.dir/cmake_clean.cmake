@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/core.dir/Date.cpp.obj"
   "CMakeFiles/core.dir/Element.cpp.obj"
   "CMakeFiles/core.dir/ListElement.cpp.obj"
   "libcore.a"

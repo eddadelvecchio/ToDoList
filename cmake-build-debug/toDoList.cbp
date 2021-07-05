@@ -400,6 +400,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/itsci/CLionProjects/untitled2/Date.cpp">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="C:/Users/itsci/CLionProjects/untitled2/Date.h">
+			<Option target="core"/>
+		</Unit>
 		<Unit filename="C:/Users/itsci/CLionProjects/untitled2/Element.cpp">
 			<Option target="core"/>
 		</Unit>

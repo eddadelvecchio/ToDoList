@@ -17,67 +17,83 @@ protected:
 };
 
 TEST_F(ListElementSuite, IOTest){
-auto el = list.find("Test1");
-ASSERT_NE(el, list.getElements().end());
 
-list.writeToFile();
-list.removeList();
-list.loadFromFile("UnitTest");
-el = list.find("Test1");
-ASSERT_NE(el, list.getElements().end());
-EXPECT_TRUE(el->isChecked());
-EXPECT_NE(el->getDateTime(), "");
+    auto el = list.find("Test1");
+    ASSERT_NE(el, list.getElements().end());
 
-el = list.find("Test2");
-ASSERT_NE(el, list.getElements().end());
-EXPECT_EQ(el->getDateTime(), "");
+    list.writeToFile();
+    list.removeList();
+    list.loadFromFile("UnitTest");
+    el = list.find("Test1");
+    ASSERT_NE(el, list.getElements().end());
+    EXPECT_TRUE(el->isChecked());
+    EXPECT_NE(el->getDateTime(), "");
 
-list.removeElement(*el);
-list.addElement(Element("Test3"));
-list.writeToFile();
-list.removeList();
-list.loadFromFile("UnitTest");
-el = list.find("Test2");
-ASSERT_EQ(el, list.getElements().end());
-el = list.find("Test3");
-ASSERT_NE(el, list.getElements().end());
-EXPECT_FALSE(el->isChecked());
+    el = list.find("Test2");
+    ASSERT_NE(el, list.getElements().end());
+    EXPECT_EQ(el->getDateTime(), "");
+
+    list.removeElement(*el);
+    list.addElement(Element("Test3"));
+    list.writeToFile();
+    list.removeList();
+    list.loadFromFile("UnitTest");
+    el = list.find("Test2");
+    ASSERT_EQ(el, list.getElements().end());
+    el = list.find("Test3");
+    ASSERT_NE(el, list.getElements().end());
+    EXPECT_FALSE(el->isChecked());
+
 }
 
-TEST_F(ListElementSuite, TestAltraLista){
-list.addList("SecondList");
-EXPECT_EQ(list.getCurrentListName(), "SecondList") << "CurrentList è stato aggiornato";
-EXPECT_NO_THROW(list.getElements()) << "La lista è stata creata";
+TEST_F(ListElementSuite, TestAltraLista) {
 
-list.addElement(Element("SecondListElement"));
-EXPECT_FALSE(list.getElements().empty()) << "La lista non è vuota, quindi l'elemento è stato aggiunto";
+    list.addList("SecondList");
+    EXPECT_EQ(list.getCurrentListName(), "SecondList") << "CurrentList è stato aggiornato";
+    EXPECT_NO_THROW(list.getElements()) << "La lista è stata creata";
 
-list.changeList("UnitTest");
-EXPECT_NE(list.find("Test1"), list.getElements().end()) << "Cambiando lista gli elementi rimangono intatti";
+    list.addElement(Element("SecondListElement"));
+    EXPECT_FALSE(list.getElements().empty()) << "La lista non è vuota, quindi l'elemento è stato aggiunto";
 
-list.changeList("SecondList");
-list.writeToFile();
+    list.changeList("UnitTest");
+    EXPECT_NE(list.find("Test1"), list.getElements().end()) << "Cambiando lista gli elementi rimangono intatti";
 
-list.removeList();
-EXPECT_THROW(list.getElements(), std::out_of_range) << "La lista è stata rimossa";
+    list.changeList("SecondList");
+    list.writeToFile();
 
-list.loadFromFile("SecondList");
-EXPECT_NE(list.find("SecondListElement"), list.getElements().end());
+    list.removeList();
+    EXPECT_THROW(list.getElements(), std::out_of_range) << "La lista è stata rimossa";
+
+    list.loadFromFile("SecondList");
+    EXPECT_NE(list.find("SecondListElement"), list.getElements().end());
+
 }
 
 TEST_F(ListElementSuite, TestOperazioniNonEseguibili){
-list.changeList("ListaInesistente");
-EXPECT_NE(list.getCurrentListName(), "ListaInesistente") << "Cambiare su una lista inesistente non produce nessun risultato";
+    list.changeList("ListaInesistente");
+    EXPECT_NE(list.getCurrentListName(), "ListaInesistente") << "Cambiare su una lista inesistente non produce nessun risultato";
 
-EXPECT_EQ(list.find("Elemento Non Esistente"), list.getElements().end()) << "La ricerca di un elemento inesitente non dà risultati";
+    EXPECT_EQ(list.find("Elemento Non Esistente"), list.getElements().end()) << "La ricerca di un elemento inesitente non dà risultati";
 
-list.removeList();
-EXPECT_THROW(list.getElements(), std::out_of_range) << "Quando non c'è nessuna lista non si può accedere alla lista degli elementi";
+    list.removeList();
+    EXPECT_THROW(list.getElements(), std::out_of_range) << "Quando non c'è nessuna lista non si può accedere alla lista degli elementi";
 
-auto el = list.find("Lista Non Esistente");
-EXPECT_EQ(el, list.getElements().end()) << "La ricerca in una lista corrente inesistente non dà risultati";
+    auto el = list.find("Lista Non Esistente");
+    EXPECT_EQ(el, list.getElements().end()) << "La ricerca in una lista corrente inesistente non dà risultati";
 
-list.writeToFile();
-ifstream outputFile("../assets/.txt");
-EXPECT_FALSE(outputFile) << "Non si può salvare un file se la lista corrente non esiste";
+    list.writeToFile();
+    ifstream outputFile("../assets/.txt");
+    EXPECT_FALSE(outputFile) << "Non si può salvare un file se la lista corrente non esiste";
+
+}
+
+TEST_F(ListElementSuite, TestListToggle) {
+    Element element("ToggledElement");
+    element.toggle();
+    Element element1("UntoggledElement");
+    list.addElement(element);
+    list.addElement(element1);
+    EXPECT_TRUE(element.isChecked())  << "Il primo elemento aggiunto è togglato";
+    EXPECT_FALSE(element1.isChecked()) << "L'UntoggledELement non è togglato";
+
 }

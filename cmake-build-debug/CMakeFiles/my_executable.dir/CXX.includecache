@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/itsci/CLionProjects/untitled2/Date.h
+iostream
+-
+
 C:/Users/itsci/CLionProjects/untitled2/Element.h
 iostream
 -
@@ -13,6 +17,8 @@ iomanip
 -
 sstream
 -
+Date.h
+C:/Users/itsci/CLionProjects/untitled2/Date.h
 
 C:/Users/itsci/CLionProjects/untitled2/ListElement.h
 map
@@ -39,4 +45,14 @@ Element.h
 C:/Users/itsci/CLionProjects/untitled2/Element.h
 ListElement.h
 C:/Users/itsci/CLionProjects/untitled2/ListElement.h
+Date.h
+C:/Users/itsci/CLionProjects/untitled2/Date.h
+ctime
+-
+iomanip
+-
+iostream
+-
+sstream
+-
 

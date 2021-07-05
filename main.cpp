@@ -2,13 +2,23 @@
 #include <cctype>
 #include "Element.h"
 #include "ListElement.h"
+#include "Date.h"
+#include <ctime>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
+
+
 int main() {
     ListElement lista;
     string nome, currentList;
+    int anno, mese, giorno;
+    Date data;
     list<Element>::iterator el;
     int scelta = -1;
+
     do{
         cout << "0. Esci\n"
                 "1. Aggiungi nuova lista\n"
@@ -56,7 +66,19 @@ int main() {
                 if( !lista.getCurrentListName().empty()) {
                     cout << "Scrivi il nome dell'elemento da aggiungere" << endl;
                     getline(cin, nome);
-                    lista.addElement(Element(nome));
+                    cout << "Aggiungi una data" << endl;
+                    do {
+                        cout << "Inserisci il giorno" << endl;
+                        cin >> giorno;
+                        cout << "Inserisci il mese" << endl;
+                        cin >> mese;
+                        cout << "Inserisci l'anno" << endl;
+                        cin >> anno;
+                        data = Date(anno, mese, giorno);
+                    } while(!data.isValidDate());
+                    Element element = Element(nome, data);
+                    lista.addElement(element);
+
                 }
                 else
                     cout << "Nessuna lista selezionata" << endl;
@@ -123,4 +145,5 @@ int main() {
         }
     }while(scelta != 0);
     return 0;
+
 }

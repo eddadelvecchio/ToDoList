@@ -1,6 +1,7 @@
 #include "Element.h"
+#include "Date.h"
 
-Element::Element(const string &name) : name(name), checked(false), dateTime("") {}
+Element::Element(const string &name, Date date) : name(name), reminderDate(date), checked(false), dateTime("") {}
 
 const string &Element::getName() const {
     return name;
@@ -37,8 +38,16 @@ void Element::setDateTime(const string &dateTime) {
     Element::dateTime = dateTime;
 }
 
+const Date Element::getReminderDate() const {
+    return reminderDate;
+}
+
+void Element::setReminderDate(const Date &reminderDate) {
+    Element::reminderDate = reminderDate;
+}
+
 const string Element::toString() const {
-    return name + (checked?"|TRUE|" + dateTime :"");
+    return name + "|" + reminderDate.toString() + "|" + (checked?"|TRUE|" + dateTime :"");
 }
 
 bool Element::operator==(const Element &rhs) const {

@@ -36,7 +36,7 @@ list<Element>::iterator ListElement::find(string name) {
 }
 
 void ListElement::loadFromFile(string fileName) {
-    ifstream inputFile("../assets/" + fileName + ".txt");
+    ifstream inputFile("./assets/" + fileName + ".txt");
     if(inputFile.good()){
         string str;
         Element e;
@@ -50,7 +50,7 @@ void ListElement::loadFromFile(string fileName) {
                 pch.push_back(test);
             }
             e = Element(pch[0]);
-            if(pch.size() > 1){
+            if(pch.size() > 2){
                 e.setChecked(true);
                 e.setDateTime(pch[2]);
             }
@@ -64,7 +64,7 @@ void ListElement::loadFromFile(string fileName) {
 void ListElement::writeToFile() {
     if(lists.at(currentList).empty())
         return;
-    ofstream outputFile("../assets/" + currentList + ".txt");
+    ofstream outputFile("./assets/" + currentList + ".txt");
     if(outputFile.is_open()){
         for(const auto& el : lists[currentList]){
             outputFile << el.toString() << endl;

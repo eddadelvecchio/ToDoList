@@ -265,6 +265,33 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f test\lib\googletest-master\googlemock\gtest\CMakeFiles\gtest_main.dir\build.make test/lib/googletest-master/googlemock/gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+Date.obj: Date.cpp.obj
+
+.PHONY : Date.obj
+
+# target to build an object file
+Date.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Date.cpp.obj
+.PHONY : Date.cpp.obj
+
+Date.i: Date.cpp.i
+
+.PHONY : Date.i
+
+# target to preprocess a source file
+Date.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Date.cpp.i
+.PHONY : Date.cpp.i
+
+Date.s: Date.cpp.s
+
+.PHONY : Date.s
+
+# target to generate assembly for a file
+Date.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/Date.cpp.s
+.PHONY : Date.cpp.s
+
 Element.obj: Element.cpp.obj
 
 .PHONY : Element.obj
@@ -365,6 +392,9 @@ help:
 	@echo ... gtest_main
 	@echo ... my_executable
 	@echo ... unitTesting
+	@echo ... Date.obj
+	@echo ... Date.i
+	@echo ... Date.s
 	@echo ... Element.obj
 	@echo ... Element.i
 	@echo ... Element.s
