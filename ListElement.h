@@ -33,6 +33,8 @@ public:
 
     void writeToFile();
 
+    const int getToggledElements();
+
 private:
     map<string, list<Element>> lists;
     string currentList;

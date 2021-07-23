@@ -95,5 +95,12 @@ TEST_F(ListElementSuite, TestListToggle) {
     list.addElement(element1);
     EXPECT_TRUE(element.isChecked())  << "Il primo elemento aggiunto è togglato";
     EXPECT_FALSE(element1.isChecked()) << "L'UntoggledELement non è togglato";
-
+}
+TEST_F(ListElementSuite, TestListToggleCount) {
+    Element element("ToggledElement");
+    element.toggle();
+    Element element1("UntoggledElement");
+    list.addElement(element);
+    list.addElement(element1);
+    EXPECT_EQ(list.getToggledElements(),2);
 }

@@ -73,3 +73,13 @@ void ListElement::writeToFile() {
     else
         cerr << "Impossibile aprire il file" << endl;
 }
+
+const int ListElement::getToggledElements(){
+    int count=0;
+    for(const auto& el : lists[currentList]){
+        if (el.isChecked()){
+            count++;
+        }
+    }
+    return count;
+}
