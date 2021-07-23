@@ -13,7 +13,7 @@ class Element {
 public:
     Element() = default;
 
-    explicit Element(const string &name, Date date = Date());
+    explicit Element(const string &name, const Date &date = Date());
 
     const string &getName() const;
 

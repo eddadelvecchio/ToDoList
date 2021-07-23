@@ -22,15 +22,28 @@ Date::Date(int year,int month,int day): year(year), month(month), day(day) {}
     }
 
     void Date::setYear(int year) {
+        int prevYear = Date::year;
         Date::year = year;
+        if (!this->isValidDate()){
+            Date::year = prevYear;
+        };
+
     }
 
     void Date::setMonth(int month) {
+        int prevMonth = Date::month;
         Date::month = month;
+        if (!this->isValidDate()){
+            Date::month = prevMonth;
+        };
     }
 
     void Date::setDay(int day) {
+        int prevDay = Date::day;
         Date::day = day;
+        if (!this->isValidDate()){
+            Date::day = prevDay;
+        };
     }
 
     bool isLeap(int year){                                                 // Controllo che l'anno sia bisestile, verifico che sia un multiplo di 4 e non un multiplo di 100 o se l'anno è un multiplo di 400

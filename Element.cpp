@@ -1,7 +1,7 @@
 #include "Element.h"
 #include "Date.h"
 
-Element::Element(const string &name, Date date) : name(name), reminderDate(date), checked(false), dateTime("") {}
+Element::Element(const string &name,const Date &date) : name(name), reminderDate(date), checked(false), dateTime("") {}
 
 const string &Element::getName() const {
     return name;
