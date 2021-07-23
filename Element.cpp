@@ -38,7 +38,7 @@ void Element::setDateTime(const string &dateTime) {
     Element::dateTime = dateTime;
 }
 
-const Date Element::getReminderDate() const {
+const Date &Element::getReminderDate() const {
     return reminderDate;
 }
 

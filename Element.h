@@ -29,7 +29,7 @@ public:
 
     void setDateTime(const string &dateTime);
 
-    const Date getReminderDate() const;
+    const Date &getReminderDate() const;
 
     void setReminderDate(const Date &reminderDate);
 
