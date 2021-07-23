@@ -1,4 +1,5 @@
 #include "../Element.h"
+#include "../Date.h"
 #include <gtest/gtest.h>
 
 TEST(ElementTest, ConstuctorTest){
@@ -44,4 +45,16 @@ e2.toggle();
 EXPECT_TRUE(e1 == e2);
 e2.setName("Paolo");
 EXPECT_FALSE(e1 == e2);
+}
+
+TEST(ElementTest, DateTest){
+    Date date1;
+    EXPECT_ANY_THROW(date1.setYear(10000));
+    EXPECT_ANY_THROW(date1.setYear(1799));
+    EXPECT_ANY_THROW(date1.setMonth(13));
+    EXPECT_ANY_THROW(date1.setMonth(0));
+    EXPECT_ANY_THROW(date1.setDay(32));
+    EXPECT_ANY_THROW(date1.setDay(0));
+    Date date2(2021,02,01);
+    EXPECT_ANY_THROW(date2.setDay(29));
 }

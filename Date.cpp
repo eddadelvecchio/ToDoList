@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include <sstream>
+#include <stdexcept>
 
 Date::Date(int year,int month,int day): year(year), month(month), day(day) {}
 
@@ -22,27 +23,24 @@ Date::Date(int year,int month,int day): year(year), month(month), day(day) {}
     }
 
     void Date::setYear(int year) {
-        int prevYear = Date::year;
         Date::year = year;
         if (!this->isValidDate()){
-            Date::year = prevYear;
+            throw std::invalid_argument("La data inserita non è valida");
         };
 
     }
 
     void Date::setMonth(int month) {
-        int prevMonth = Date::month;
         Date::month = month;
         if (!this->isValidDate()){
-            Date::month = prevMonth;
+            throw std::invalid_argument("La data inserita non è valida");
         };
     }
 
     void Date::setDay(int day) {
-        int prevDay = Date::day;
         Date::day = day;
         if (!this->isValidDate()){
-            Date::day = prevDay;
+            throw std::invalid_argument("La data inserita non è valida");
         };
     }
 
