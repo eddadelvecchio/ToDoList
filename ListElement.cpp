@@ -3,11 +3,13 @@
 void ListElement::addList(const string& listName) {
     lists[listName] = list<Element>();
     currentList = listName;
+    notifyObservers();
 }
 
 void ListElement::removeList() {
     lists.erase(currentList);
     currentList = "";
+    notifyObservers();
 }
 
 const string& ListElement::getCurrentListName() const {
@@ -74,7 +76,7 @@ void ListElement::writeToFile() {
         cerr << "Impossibile aprire il file" << endl;
 }
 
-const int ListElement::getToggledElements(){
+int ListElement::getToggledElements(){
     int count=0;
     for(const auto& el : lists[currentList]){
         if (el.isChecked()){
@@ -83,3 +85,5 @@ const int ListElement::getToggledElements(){
     }
     return count;
 }
+
+

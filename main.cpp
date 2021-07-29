@@ -7,12 +7,14 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include "PrintList.h"
 
 using namespace std;
 
 
 int main() {
     ListElement lista;
+    PrintList pl(lista);
     string nome, currentList;
     int anno, mese, giorno;
     Date data;

@@ -8,9 +8,10 @@
 #include <fstream>
 #include <algorithm>
 #include "Element.h"
+#include "Subject.h"
 
 using namespace std;
-class ListElement {
+class ListElement : public Subject {
 public:
 
     void addList(const string& listName);
@@ -33,7 +34,7 @@ public:
 
     void writeToFile();
 
-    const int getToggledElements();
+    int getToggledElements();
 
 private:
     map<string, list<Element>> lists;

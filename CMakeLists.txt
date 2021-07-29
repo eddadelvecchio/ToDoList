@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(test)
 
-set(SOURCE_FILES Element.cpp Element.h ListElement.cpp ListElement.h Date.cpp Date.h)
+set(SOURCE_FILES Element.cpp Element.h ListElement.cpp ListElement.h Date.cpp Date.h Observer.cpp Observer.h Subject.cpp Subject.h PrintList.cpp PrintList.h Observer.cpp)
 add_executable(my_executable main.cpp)
 
 add_library(core ${SOURCE_FILES})

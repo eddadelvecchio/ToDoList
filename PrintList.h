@@ -1,12 +1,24 @@
-//
-// Created by itsci on 24/07/2021.
-//
-
 #ifndef TODOLIST_PRINTLIST_H
 #define TODOLIST_PRINTLIST_H
+#include "Subject.h"
+#include "Observer.h"
+#include "Observer.cpp"
+#include <stdlib.h>
+
+class PrintList : public Observer {
 
 
-class PrintList {
+public:
+
+    PrintList(Subject &subject);
+
+    void update(Subject* subject);
+
+    ~PrintList();
+
+
+private:
+        Subject& subject;
 
 };
 
