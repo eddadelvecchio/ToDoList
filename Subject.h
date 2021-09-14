@@ -17,7 +17,7 @@ public:
 
     void notifyObservers();
 
-    std::set<Observer *> observerSet;
+    static std::set<Observer *> observerSet;
 };
 
 #endif //TODOLIST_SUBJECT_H
