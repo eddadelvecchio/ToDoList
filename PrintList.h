@@ -12,7 +12,7 @@ public:
 
     PrintList(Subject &subject);
 
-    void update(Subject* subject);
+    void update(Subject* subject) override;
 
     ~PrintList();
 
