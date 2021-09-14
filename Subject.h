@@ -9,13 +9,13 @@ class Subject {
 
 public:
 
-    void addObserver(Observer *obs);
+    virtual void addObserver(Observer *obs);
+        
+    virtual void removeObserver(Observer *obs);
 
-    void removeObserver(Observer *obs);
+    virtual void removeAllObservers();
 
-    void removeAllObservers();
-
-    void notifyObservers();
+    virtual void notifyObservers();
 
     std::set<Observer *> observerSet;
 };
